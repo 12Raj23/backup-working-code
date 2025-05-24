@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Control Panel </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- PAGE 1: IP Address and Port entry (active by default) -->
+  <div class="page active" id="page0">
+    <form id="serverForm" class="standard-form">
+      <div class="form-row">
+        <label for="ipAddress">IP Address:</label>
+        <input type="text" id="ipAddress" name="ipAddress" required autocomplete="off" />
+      </div>
+      <div class="form-row">
+        <label for="port">Port:</label>
+        <input type="number" id="port" name="port" required autocomplete="off" />
+      </div>
+      <div class="form-row button-row">
+        <button type="submit" id="enterButton">Enter</button>
+      </div>
+    </form>
+    <p id="startOutput" class="error-message"></p>
+  </div>
+
+  <!-- PAGE 2: Camera Controls -->
+  <div class="page" id="page1">
+    <div class="grid-container">
+      <div class="column">
+        <button class="control-button" data-value="zoom_in">ZOOM IN</button>
+        <button class="control-button" data-value="zoom_out">ZOOM OUT</button>
+        <button class="control-button" data-value="op">OP</button>
+      </div>
+      <div class="column">
+        <button class="control-button" data-value="expo_high">EXPO HIGH</button>
+        <button class="control-button" data-value="auto_expo">AUTO EXPO</button>
+        <button class="control-button" data-value="expo_low">EXPO LOW</button>
+      </div>
+      <div class="column">
+        <button class="control-button" data-value="focus_far">FOCUS FAR</button>
+        <button class="control-button" data-value="auto_focus">AUTO FOCUS</button>
+        <button class="control-button" data-value="focus_near">FOCUS NEAR</button>
+      </div>
+    </div>
+
+    <div
+      class="grid-container"
+      style="margin-top: 50px; justify-content: center; gap: 80px;"
+    >
+      <div class="freeze-reset-column">
+        <button class="control-button" data-value="freeze">FREEZE</button>
+        <button class="control-button" data-value="reset">RESET</button>
+      </div>
+      <div class="mode-power-column">
+        <button class="control-button" data-value="mode">MODE</button>
+        <button class="control-button" data-value="power">POWER</button>
+      </div>
+    </div>
+
+    <button class="control-button nav-button" id="nextPage">OTHER CONTROLS</button>
+  </div>
+
+  <!-- PAGE 3: Other Controls (only flip + back button) -->
+  <div class="page" id="page2">
+    <div class="grid-container" style="justify-content: center; gap: 80px;">
+      <div class="column">
+        <button class="control-button" data-value="v_flip">VERTICAL FLIP</button>
+        <button class="control-button" data-value="h_flip">HORIZONTAL FLIP</button>
+      </div>
+    </div>
+    <button class="control-button nav-button" id="prevPage">Back</button>
+  </div>
+
+  <p id="output"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
